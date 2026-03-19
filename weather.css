@@ -1,0 +1,65 @@
+body{
+   background-image: url("./anya-akbari-gxF8oNMM9HM-unsplash.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+}
+
+.search{
+   position: fixed;
+   left: 620px;
+   top: 200px;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+
+}
+
+#city{
+   height: 40px;
+   width: 300px;
+   font-weight: 500;
+   padding: 10px;
+   border-radius: 50px;
+}
+#city:hover{
+   border: 2px solid grey;
+   box-shadow: 2px 2px 10px grey;
+}
+.a{
+   border-radius: 50%;
+   height: 40px;
+   width: 40px;
+   
+
+}
+.a:hover{
+   background-color: rgb(14, 222, 14);
+}
+.rain{
+   position: relative;
+   left:50px;
+}
+.rain h3{
+   color: azure;
+}
+.class{
+   display: flex;
+   justify-items: center;
+}
+.class .humidity{
+   position: relative;
+   color: white;
+   padding-right: 30px;
+   top: 100px;
+}
+.class .wind{
+  position: relative;
+  color: white;
+  top: 90px;
+  padding-left: 60px;
+}
+
+
+
