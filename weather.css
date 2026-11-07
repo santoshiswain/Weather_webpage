@@ -1,65 +1,240 @@
-body{
-   background-image: url("./anya-akbari-gxF8oNMM9HM-unsplash.jpg");
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center;
-   background-attachment: fixed;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.search{
-   position: fixed;
-   left: 620px;
-   top: 200px;
-   background-repeat: no-repeat;
-   background-position: center;
-   background-attachment: fixed;
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
 
+    background: linear-gradient(
+        135deg,
+        #0f2027,
+        #203a43,
+        #2c5364
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-#city{
-   height: 40px;
-   width: 300px;
-   font-weight: 500;
-   padding: 10px;
-   border-radius: 50px;
+.container {
+    width: 100%;
+    max-width: 450px;
 }
-#city:hover{
-   border: 2px solid grey;
-   box-shadow: 2px 2px 10px grey;
-}
-.a{
-   border-radius: 50%;
-   height: 40px;
-   width: 40px;
-   
 
+.weather-card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 25px;
+    padding: 35px 25px;
+
+    text-align: center;
+    color: white;
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
-.a:hover{
-   background-color: rgb(14, 222, 14);
+
+.weather-card h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
 }
-.rain{
-   position: relative;
-   left:50px;
+
+.weather-card p {
+    color: #d0dce5;
 }
-.rain h3{
-   color: azure;
+
+.search {
+    display: flex;
+    gap: 10px;
+    margin: 30px 0;
 }
-.class{
-   display: flex;
-   justify-items: center;
+
+#city {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 15px;
 }
-.class .humidity{
-   position: relative;
-   color: white;
-   padding-right: 30px;
-   top: 100px;
+
+.a {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #61dafb;
+    cursor: pointer;
+    transition: 0.3s;
 }
-.class .wind{
-  position: relative;
-  color: white;
-  top: 90px;
-  padding-left: 60px;
+
+.a:hover {
+    background: #ffffff;
+    transform: scale(1.1);
 }
+
+#icon {
+    width: 130px;
+    margin: 10px auto;
+}
+
+#result {
+    font-size: 55px;
+    margin: 10px 0;
+}
+
+#city-name {
+    margin: 15px 0;
+}
+
+.details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 35px;
+    gap: 15px;
+}
+
+.humidity,
+.wind {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.humidity img,
+.wind img {
+    width: 40px;
+}
+
+.details h3 {
+    font-size: 18px;
+}
+
+.details p {
+    font-size: 13px;
+}
+
+@media (max-width: 400px) {
+    .weather-card {
+        padding: 25px 15px;
+    }
+
+    #result {
+        font-size: 45px;
+    }
+}
+
+.forecast-section {
+    margin-top: 30px;
+    color: white;
+    text-align: center;
+}
+
+.forecast-section h2 {
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 15px;
+    padding: 15px 5px;
+    transition: 0.3s;
+}
+
+.forecast-card:hover {
+    transform: translateY(-7px);
+    background: rgba(255,255,255,0.22);
+}
+
+.forecast-card img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.forecast-card h3 {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.forecast-card p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+@media (max-width: 600px) {
+    .forecast-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Dynamic weather backgrounds */
+
+body {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-color 1s ease;
+}
+
+/* Sunny */
+body.weather-clear {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.35)),
+        url("background/clear.jpg");
+}
+
+/* Cloudy */
+body.weather-clouds {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+        url("background/cloud.jpg");
+}
+
+/* Rain */
+body.weather-rain {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+        url("background/rain.jpg");
+}
+
+
+
+/* Snow */
+body.weather-snow {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)),
+        url("background/snow.jpg");
+}
+
+
+
+/* Fog and mist */
+body.weather-mist {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+        url("background/mist.jpg");
+}
+
+
 
 
 
