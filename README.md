@@ -10,7 +10,7 @@ Users can search for a location and get details like temperature, humidity, and 
 - Search weather by city name
 - Shows temperature, humidity
 - Fast and user-friendly interface
-
+- Give 5 day forecast
 ---
 
 # Tech Stack
